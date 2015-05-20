@@ -1,0 +1,4 @@
+Private-Package:  \
+	org.amdatu.examples.greeter.impl
+Export-Package:  \
+	org.amdatu.examples.greeter

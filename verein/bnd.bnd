@@ -1,0 +1,7 @@
+Bundle-Version: 0.0.0.${tstamp}
+-sub:  \
+	*.bnd
+-buildpath:  \
+	org.apache.felix.dependencymanager,\
+	../cnf/plugins/org.apache.felix.dependencymanager.annotation-3.2.0.jar;version=file,\
+	osgi.core
