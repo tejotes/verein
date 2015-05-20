@@ -2,4 +2,5 @@ Bundle-Version: 0.0.0.${tstamp}
 Export-Package:  \
 	de.popts.verein.person
 Private-Package:  \
-	de.popts.verein.person.impl
+	de.popts.verein.person.impl,\
+	de.popts.verein.person.commands
