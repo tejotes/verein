@@ -21,30 +21,42 @@ public class TestCommands {
 	private volatile PersonApi personApi;
 
 	public void store(String vorname, String name) throws PersonException {
+		long startMillis = System.currentTimeMillis();
 		Person person = new Person();
 		person.setName(name);
 		person.setVorname(vorname);
 
 		personApi.personAnlegen(person);
+		long durationMillis = System.currentTimeMillis() - startMillis;
+		System.out.println("duration: " + durationMillis + "[ms]");
 	}
 
 	public void show() {
+		long startMillis = System.currentTimeMillis();
 		List<Person> personList = personApi.listAll();
 
 		for (Person person : personList) {
 			System.out.println("person: " + person);
 		}
+		long durationMillis = System.currentTimeMillis() - startMillis;
+		System.out.println("duration: " + durationMillis + "[ms]");
 	}
 
 	public void show(String oid) {
+		long startMillis = System.currentTimeMillis();
 		Person person = personApi.get4oid(oid);
 		System.out.println("person: " + person);
+		long durationMillis = System.currentTimeMillis() - startMillis;
+		System.out.println("duration: " + durationMillis + "[ms]");
 	}
 
 	public void remove(String oid) throws PersonException {
+		long startMillis = System.currentTimeMillis();
 		Person person = personApi.get4oid(oid);
 		personApi.personLoeschen(person);
 		System.out.println("removed: " + person);
+		long durationMillis = System.currentTimeMillis() - startMillis;
+		System.out.println("duration: " + durationMillis + "[ms]");
 	}
 
 }
