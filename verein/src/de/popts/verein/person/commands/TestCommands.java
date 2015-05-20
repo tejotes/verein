@@ -12,8 +12,8 @@ import de.popts.verein.person.PersonApi;
 import de.popts.verein.person.PersonException;
 
 @Component(properties = {
-		@Property(name = CommandProcessor.COMMAND_SCOPE, value = "verein"),
-		@Property(name = CommandProcessor.COMMAND_FUNCTION, value = {"show", "store"}) 
+		@Property(name = CommandProcessor.COMMAND_SCOPE, value = "person"),
+		@Property(name = CommandProcessor.COMMAND_FUNCTION, value = {"show", "store", "remove"}) 
 }, provides = Object.class)
 public class TestCommands {
 
@@ -34,6 +34,17 @@ public class TestCommands {
 		for (Person person : personList) {
 			System.out.println("person: " + person);
 		}
+	}
+
+	public void show(String oid) {
+		Person person = personApi.get4oid(oid);
+		System.out.println("person: " + person);
+	}
+
+	public void remove(String oid) throws PersonException {
+		Person person = personApi.get4oid(oid);
+		personApi.personLoeschen(person);
+		System.out.println("removed: " + person);
 	}
 
 }
