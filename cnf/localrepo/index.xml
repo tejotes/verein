@@ -1,2 +1,680 @@
 <?xml version='1.0' encoding='utf-8'?>
-<repository increment='1342528672992' name='Local' xmlns='http://www.osgi.org/xmlns/repository/v1.0.0'/>
+<repository increment='1432215840092' name='Local' xmlns='http://www.osgi.org/xmlns/repository/v1.0.0'>
+  <resource>
+    <capability namespace='osgi.identity'>
+      <attribute name='osgi.identity' value='org.postgresql.jdbc41'/>
+      <attribute name='type' value='osgi.bundle'/>
+      <attribute name='version' type='Version' value='9.4.0.build-1201'/>
+    </capability>
+    <capability namespace='osgi.content'>
+      <attribute name='osgi.content' value='58602c46857b0a19994ea1b3fc9bc39b03ec56a7e2a45acaff715a443453e094'/>
+      <attribute name='url' value='org.postgresql.jdbc41/org.postgresql.jdbc41-9.4.0.jar'/>
+      <attribute name='size' type='Long' value='648487'/>
+      <attribute name='mime' value='application/vnd.osgi.bundle'/>
+    </capability>
+    <capability namespace='osgi.wiring.bundle'>
+      <attribute name='osgi.wiring.bundle' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+    </capability>
+    <capability namespace='osgi.wiring.host'>
+      <attribute name='osgi.wiring.host' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql.copy,org.postgresql.fastpath,org.postgresql.largeobject,org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.copy'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql,org.postgresql.core'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.core'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql,org.postgresql.copy,org.postgresql.jdbc2,org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.core.types'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.core.v2'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql.copy,org.postgresql.core,org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.core.v3'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql.copy,org.postgresql.core,org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.ds'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='javax.sql,org.postgresql.ds.jdbc4'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.ds.common'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='javax.naming,javax.naming.spi,org.postgresql'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.ds.jdbc23'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='javax.naming,javax.sql,org.postgresql.ds,org.postgresql.ds.common'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.ds.jdbc4'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='javax.sql,org.postgresql.ds.jdbc23'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.fastpath'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql.core'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.geometric'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.gss'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='javax.security.auth.callback,org.postgresql.core'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.hostchooser'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.jdbc2'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql,org.postgresql.copy,org.postgresql.core,org.postgresql.fastpath,org.postgresql.largeobject,org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.jdbc2.optional'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql.ds'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.jdbc3'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql.core,org.postgresql.jdbc2,org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.jdbc3g'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql.core,org.postgresql.jdbc3,org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.jdbc4'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='javax.xml.transform,org.postgresql.core,org.postgresql.jdbc2,org.postgresql.jdbc3,org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.jdbc4.array'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql.jdbc2'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.largeobject'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql.core,org.postgresql.fastpath'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.osgi'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='javax.sql,org.osgi.framework,org.osgi.service.jdbc'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.ssl'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='javax.net.ssl,org.postgresql.ssl.jdbc4'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.ssl.jdbc4'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='javax.net.ssl,javax.security.auth.callback,org.postgresql.core,org.postgresql.ssl,org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.sspi'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='com.sun.jna,org.postgresql.core'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.translation'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.util'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql.core'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.xa'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='javax.naming,javax.sql,javax.transaction.xa,org.postgresql.core,org.postgresql.ds,org.postgresql.ds.common,org.postgresql.xa.jdbc4'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.xa.jdbc3'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='javax.naming,javax.sql,org.postgresql.ds.common'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.xa.jdbc4'/>
+      <attribute name='version' type='Version' value='9.4.0'/>
+      <attribute name='bundle-symbolic-name' value='org.postgresql.jdbc41'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.build-1201'/>
+      <directive name='uses' value='org.postgresql.xa.jdbc3'/>
+    </capability>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.sql)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.transaction.xa)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.naming)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=com.sun.jna)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=com.sun.jna.platform.win32)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=com.sun.jna.ptr)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=com.sun.jna.win32)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.crypto)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.crypto.spec)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.naming.ldap)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.naming.spi)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.net)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.net.ssl)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.security.auth)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.security.auth.callback)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.security.auth.login)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.security.auth.x500)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.xml.parsers)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.xml.stream)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.xml.transform)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.xml.transform.dom)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.xml.transform.sax)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.xml.transform.stax)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.xml.transform.stream)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=org.ietf.jgss)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=org.osgi.framework)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=org.osgi.service.jdbc)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=org.w3c.dom)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=org.xml.sax)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=waffle.windows.auth)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=waffle.windows.auth.impl)'/>
+      <directive name='resolution' value='optional'/>
+    </requirement>
+    <requirement namespace='osgi.ee'>
+      <directive name='filter' value='(&amp;(|(osgi.ee=J2SE)(osgi.ee=JavaSE))(version&gt;=1.7))'/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace='osgi.identity'>
+      <attribute name='osgi.identity' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='type' value='osgi.bundle'/>
+      <attribute name='version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+    </capability>
+    <capability namespace='osgi.content'>
+      <attribute name='osgi.content' value='626da9d6a47b63caf676e521df5b40f93033d80a2b8302ab282aa3819c42236b'/>
+      <attribute name='url' value='org.apache.servicemix.bundles.postgresql/org.apache.servicemix.bundles.postgresql-9.4.0.jar'/>
+      <attribute name='size' type='Long' value='656007'/>
+      <attribute name='mime' value='application/vnd.osgi.bundle'/>
+    </capability>
+    <capability namespace='osgi.wiring.bundle'>
+      <attribute name='osgi.wiring.bundle' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+    </capability>
+    <capability namespace='osgi.wiring.host'>
+      <attribute name='osgi.wiring.host' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.xa'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.util,org.postgresql.ds,javax.sql,org.postgresql,javax.transaction.xa,org.postgresql.core,org.postgresql.xa.jdbc4,javax.naming,org.postgresql.ds.common'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.ssl.jdbc4'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='javax.net,org.postgresql.util,org.postgresql,javax.net.ssl,org.postgresql.core,javax.security.auth.callback,javax.crypto,javax.crypto.spec,javax.security.auth.x500,javax.naming,javax.naming.ldap,org.postgresql.ssl'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.ds.jdbc4'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.ds.jdbc23,org.postgresql,javax.sql'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.core.types'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.hostchooser'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.jdbc3g'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.util,org.postgresql.jdbc3,org.postgresql.core'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.geometric'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.ds.common'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql,javax.naming,org.postgresql.util,org.postgresql.ds,javax.naming.spi'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.jdbc4.array'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.util,org.postgresql.jdbc2'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.core'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql,org.postgresql.jdbc2,org.postgresql.util,org.postgresql.core.v2,org.postgresql.core.v3,org.postgresql.copy'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.largeobject'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.fastpath,org.postgresql.util,org.postgresql.core'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.ds.jdbc23'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.ds,javax.sql,org.postgresql,org.postgresql.ds.common,org.postgresql.util,javax.naming'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.util'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.core,org.postgresql'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.osgi'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql,org.osgi.framework,org.osgi.service.jdbc,org.postgresql.xa,org.postgresql.jdbc2.optional,org.postgresql.util,javax.sql,org.postgresql.ds.common'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.util,org.postgresql.jdbc4,org.postgresql.core,org.postgresql.largeobject,org.postgresql.fastpath,org.postgresql.copy'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.core.v2'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.util,org.postgresql.hostchooser,org.postgresql,org.postgresql.ssl,org.postgresql.core,org.postgresql.copy'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.core.v3'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.util,org.postgresql.core,org.postgresql,org.postgresql.hostchooser,org.postgresql.sspi,org.postgresql.gss,org.postgresql.ssl,org.postgresql.copy'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.translation'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.xa.jdbc3'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.xa,javax.naming,javax.sql,org.postgresql,org.postgresql.ds.common,org.postgresql.core'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.jdbc2.optional'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.ds'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.ds'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='javax.sql,org.postgresql.ds.jdbc4'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.jdbc3'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.largeobject,org.postgresql.jdbc2,org.postgresql.core,org.postgresql,org.postgresql.util'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.fastpath'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.util,org.postgresql.core'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.jdbc4'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.jdbc2,org.postgresql.core,org.postgresql.largeobject,org.postgresql.jdbc3,org.postgresql,org.postgresql.util,org.postgresql.jdbc3g,org.postgresql.jdbc4.array,org.xml.sax,javax.xml.transform.stax,javax.xml.parsers,javax.xml.transform.dom,org.w3c.dom,javax.xml.stream,javax.xml.transform,javax.xml.transform.stream,javax.xml.transform.sax'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.sspi'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='com.sun.jna.ptr,com.sun.jna.win32,com.sun.jna,waffle.windows.auth,waffle.windows.auth.impl,org.postgresql.util,com.sun.jna.platform.win32,org.postgresql.core'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.xa.jdbc4'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.xa.jdbc3,org.postgresql'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.copy'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.util,org.postgresql.core,org.postgresql'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.jdbc2'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.util,org.postgresql,org.postgresql.core,org.postgresql.largeobject,org.postgresql.fastpath,org.postgresql.copy,org.postgresql.geometric,org.postgresql.core.types'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.gss'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='javax.security.auth.callback,org.postgresql.util,org.ietf.jgss,org.postgresql.core,javax.security.auth.login,javax.security.auth'/>
+    </capability>
+    <capability namespace='osgi.wiring.package'>
+      <attribute name='osgi.wiring.package' value='org.postgresql.ssl'/>
+      <attribute name='version' type='Version' value='9.4.0.jdbc41'/>
+      <attribute name='bundle-symbolic-name' value='org.apache.servicemix.bundles.postgresql'/>
+      <attribute name='bundle-version' type='Version' value='9.4.0.1201-jdbc41_1'/>
+      <directive name='uses' value='org.postgresql.ssl.jdbc4,javax.net.ssl,org.postgresql.util'/>
+    </capability>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=com.sun.jna)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=com.sun.jna.platform.win32)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=com.sun.jna.ptr)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=com.sun.jna.win32)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.crypto)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.crypto.spec)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.naming)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.naming.ldap)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.naming.spi)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.net)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.net.ssl)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.security.auth)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.security.auth.callback)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.security.auth.login)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.security.auth.x500)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.sql)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.transaction.xa)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.xml.parsers)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.xml.stream)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.xml.transform)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.xml.transform.dom)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.xml.transform.sax)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.xml.transform.stax)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=javax.xml.transform.stream)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=org.ietf.jgss)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=org.osgi.framework)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=org.osgi.service.jdbc)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=org.w3c.dom)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=org.xml.sax)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=waffle.windows.auth)'/>
+    </requirement>
+    <requirement namespace='osgi.wiring.package'>
+      <directive name='filter' value='(osgi.wiring.package=waffle.windows.auth.impl)'/>
+    </requirement>
+  </resource>
+</repository>

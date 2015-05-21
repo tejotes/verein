@@ -1,2 +1,5 @@
-Private-Package:  \
+Bundle-Version: 0.0.0.${tstamp}
+Export-Package:  \
 	de.popts.verein.person.jpa
+Private-Package:  \
+	de.popts.verein.person.jpa.impl

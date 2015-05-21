@@ -19,7 +19,7 @@ public class PersonTester implements PersonListener {
 	@ServiceDependency
 	private volatile PersonApi personApi;
 	
-	@Start
+
 	public void activate() {
 
 		System.out.println("PersonTester.start()");

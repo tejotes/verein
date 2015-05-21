@@ -1,11 +1,15 @@
 package de.popts.verein.person.jpa;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import de.popts.verein.person.Person;
 
 @Entity
+@Table(name = "jpaperson")
 public class JpaPerson {
 	
 	@Id
@@ -99,6 +103,7 @@ public class JpaPerson {
 	public static JpaPerson fromPerson(Person person) {
 		
 		JpaPerson jpaPerson = new JpaPerson();
+		jpaPerson.setOid(person.getOid());
 		jpaPerson.setName(person.getName());
 		jpaPerson.setVorname(person.getVorname());
 		jpaPerson.setStrasse(person.getStrasse());

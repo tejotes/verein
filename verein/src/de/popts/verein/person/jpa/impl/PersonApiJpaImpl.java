@@ -1,6 +1,7 @@
-package de.popts.verein.person.jpa;
+package de.popts.verein.person.jpa.impl;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -15,6 +16,7 @@ import org.apache.felix.dm.annotation.api.ServiceDependency;
 import de.popts.verein.person.Person;
 import de.popts.verein.person.PersonApi;
 import de.popts.verein.person.PersonException;
+import de.popts.verein.person.jpa.JpaPerson;
 import de.popts.verein.person.memory.PersonApiMemoryImpl;
 
 @Transactional
@@ -31,6 +33,9 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 
 	@Override
 	public Person personAnlegen(Person person) throws PersonException {
+		// set oid
+		person.setOid(UUID.randomUUID().toString());
+		
 		// trivial implementation
 		em.persist(JpaPerson.fromPerson(person));
 		
@@ -56,7 +61,7 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 	@Override
 	public List<Person> listAll() {
 		// execute query
-		TypedQuery<JpaPerson> query = em.createQuery("select p from JpaPerson p order by p.name, p.vorname", JpaPerson.class);
+		TypedQuery<JpaPerson> query = em.createQuery("select p from JpaPerson p", JpaPerson.class);
 		
 		// return result
 		return query.getResultList().stream().map(JpaPerson::toPerson).collect(Collectors.toList());
