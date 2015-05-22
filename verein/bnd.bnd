@@ -8,9 +8,3 @@ Bundle-Version: 0.0.0.${tstamp}
 	org.apache.felix.gogo.runtime,\
 	javax.persistence,\
 	org.amdatu.jta;version=2.0
-Meta-Persistence:META-INF/persistence.xml
-Include-Resource: \
-	META-INF/persistence.xml=persistence/persistence.xml
-Import-Package: \
-	javax.sql;version=1.0.0,\
-	*
