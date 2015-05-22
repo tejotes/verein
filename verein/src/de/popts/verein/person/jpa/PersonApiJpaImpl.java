@@ -1,4 +1,4 @@
-package de.popts.verein.person.jpa.impl;
+package de.popts.verein.person.jpa;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,7 +15,6 @@ import org.apache.felix.dm.annotation.api.ServiceDependency;
 import de.popts.verein.person.Person;
 import de.popts.verein.person.PersonApi;
 import de.popts.verein.person.PersonException;
-import de.popts.verein.person.jpa.JpaPerson;
 
 @Transactional
 @Component(provides = ManagedTransactional.class)
