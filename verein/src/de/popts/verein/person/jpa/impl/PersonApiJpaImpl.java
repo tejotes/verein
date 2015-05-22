@@ -2,7 +2,6 @@ package de.popts.verein.person.jpa.impl;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
@@ -17,7 +16,6 @@ import de.popts.verein.person.Person;
 import de.popts.verein.person.PersonApi;
 import de.popts.verein.person.PersonException;
 import de.popts.verein.person.jpa.JpaPerson;
-import de.popts.verein.person.memory.PersonApiMemoryImpl;
 
 @Transactional
 @Component(provides = ManagedTransactional.class)
@@ -34,7 +32,9 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 	@Override
 	public Person personAnlegen(Person person) throws PersonException {
 		// set oid
-		person.setOid(UUID.randomUUID().toString());
+		if (person.getOid() == null) {
+			person.setOid(UUID.randomUUID().toString());
+		}
 		
 		// trivial implementation
 		em.persist(JpaPerson.fromPerson(person));
@@ -60,6 +60,8 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 
 	@Override
 	public List<Person> listAll() {
+		System.out.println("em="+em+" Thread="+Thread.currentThread());
+		
 		// execute query
 		TypedQuery<JpaPerson> query = em.createQuery("select p from JpaPerson p", JpaPerson.class);
 		
