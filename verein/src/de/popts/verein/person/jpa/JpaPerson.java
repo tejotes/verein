@@ -117,6 +117,7 @@ public class JpaPerson {
 
 	public Person toPerson() {
 		Person person = new Person();
+		person.setOid(oid);
 		person.setName(name);
 		person.setVorname(vorname);
 		person.setStrasse(strasse);
