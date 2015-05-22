@@ -17,7 +17,7 @@
     
     <properties>
       <property name="eclipselink.target-database" value="PostgreSQL"/>
-      <property name="eclipselink.logging.level" value="FINE"/>
+      <property name="eclipselink.logging.level" value="INFO"/>
       <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
     </properties>
     
