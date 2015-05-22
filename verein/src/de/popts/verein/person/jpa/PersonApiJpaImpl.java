@@ -73,19 +73,9 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 	@Override
 	public List<Person> list4Jahr(int jahr) {
 		// execute query
-		TypedQuery<JpaPerson> query = em.createQuery("select p from JpaPerson p where (p.geburtsDatum >= :year1) and (p.geburtsDatum < :year2)", JpaPerson.class);
+		TypedQuery<JpaPerson> query = em.createQuery("select p from JpaPerson p WHERE SQL('EXTRACT (YEAR FROM ?)', p.geburtsDatum) = :year", JpaPerson.class);
 		
-		// set params
-		Calendar year1 = GregorianCalendar.getInstance();
-		year1.clear();
-		year1.set(jahr, Calendar.JANUARY, 1);
-		
-		Calendar year2 = GregorianCalendar.getInstance();
-		year2.clear();
-		year2.set(jahr+1, Calendar.JANUARY, 1);
-		
-		query.setParameter("year1", year1, TemporalType.DATE);
-		query.setParameter("year2", year2, TemporalType.DATE);
+		query.setParameter("year", jahr);
 		
 		// return result
 		return query.getResultList().stream().map(JpaPerson::toPerson).collect(Collectors.toList());
