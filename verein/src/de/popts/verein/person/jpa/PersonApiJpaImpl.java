@@ -1,10 +1,14 @@
 package de.popts.verein.person.jpa;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
 
 import org.amdatu.jta.ManagedTransactional;
@@ -59,8 +63,6 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 
 	@Override
 	public List<Person> listAll() {
-		System.out.println("em="+em+" Thread="+Thread.currentThread());
-		
 		// execute query
 		TypedQuery<JpaPerson> query = em.createQuery("select p from JpaPerson p", JpaPerson.class);
 		
@@ -70,8 +72,23 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 
 	@Override
 	public List<Person> list4Jahr(int jahr) {
-		// TODO Auto-generated method stub
-		return null;
+		// execute query
+		TypedQuery<JpaPerson> query = em.createQuery("select p from JpaPerson p where (p.geburtsDatum >= :year1) and (p.geburtsDatum < :year2)", JpaPerson.class);
+		
+		// set params
+		Calendar year1 = GregorianCalendar.getInstance();
+		year1.clear();
+		year1.set(jahr, Calendar.JANUARY, 1);
+		
+		Calendar year2 = GregorianCalendar.getInstance();
+		year2.clear();
+		year2.set(jahr+1, Calendar.JANUARY, 1);
+		
+		query.setParameter("year1", year1, TemporalType.DATE);
+		query.setParameter("year2", year2, TemporalType.DATE);
+		
+		// return result
+		return query.getResultList().stream().map(JpaPerson::toPerson).collect(Collectors.toList());
 	}
 
 	@Override

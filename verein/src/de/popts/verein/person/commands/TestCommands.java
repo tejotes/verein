@@ -13,7 +13,7 @@ import de.popts.verein.person.PersonException;
 
 @Component(properties = {
 		@Property(name = CommandProcessor.COMMAND_SCOPE, value = "person"),
-		@Property(name = CommandProcessor.COMMAND_FUNCTION, value = {"show", "store", "remove"}) 
+		@Property(name = CommandProcessor.COMMAND_FUNCTION, value = {"show", "showyear", "store", "remove"}) 
 }, provides = Object.class)
 public class TestCommands {
 
@@ -46,6 +46,18 @@ public class TestCommands {
 		long startMillis = System.currentTimeMillis();
 		Person person = personApi.get4oid(oid);
 		System.out.println("person: " + person);
+		long durationMillis = System.currentTimeMillis() - startMillis;
+		System.out.println("duration: " + durationMillis + "[ms]");
+	}
+
+	public void showyear(String yearString) {
+		long startMillis = System.currentTimeMillis();
+		int year = Integer.parseInt(yearString);
+		List<Person> personList = personApi.list4Jahr(year);
+
+		for (Person person : personList) {
+			System.out.println("person: " + person);
+		}
 		long durationMillis = System.currentTimeMillis() - startMillis;
 		System.out.println("duration: " + durationMillis + "[ms]");
 	}
