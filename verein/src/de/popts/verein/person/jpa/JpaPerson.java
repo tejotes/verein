@@ -1,10 +1,15 @@
 package de.popts.verein.person.jpa;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import de.popts.verein.person.Person;
 
@@ -18,6 +23,9 @@ public class JpaPerson {
 	private String name;
 	
 	private String vorname;
+	
+	@Temporal(TemporalType.DATE)	
+	private Date geburtsDatum;
 	
 	private String strasse;
 	
@@ -51,6 +59,14 @@ public class JpaPerson {
 
 	public void setVorname(String vorname) {
 		this.vorname = vorname;
+	}
+
+	public Date getGeburtsDatum() {
+		return geburtsDatum;
+	}
+
+	public void setGeburtsDatum(Date geburtsDatum) {
+		this.geburtsDatum = geburtsDatum;
 	}
 
 	public String getStrasse() {
@@ -96,8 +112,9 @@ public class JpaPerson {
 	@Override
 	public String toString() {
 		return "JpaPerson [oid=" + oid + ", name=" + name + ", vorname="
-				+ vorname + ", strasse=" + strasse + ", hausnr=" + hausnr
-				+ ", plz=" + plz + ", ort=" + ort + ", land=" + land + "]";
+				+ vorname + ", geburtsDatum=" + geburtsDatum + ", strasse="
+				+ strasse + ", hausnr=" + hausnr + ", plz=" + plz + ", ort="
+				+ ort + ", land=" + land + "]";
 	}
 	
 	public static JpaPerson fromPerson(Person person) {
@@ -106,6 +123,7 @@ public class JpaPerson {
 		jpaPerson.setOid(person.getOid());
 		jpaPerson.setName(person.getName());
 		jpaPerson.setVorname(person.getVorname());
+		jpaPerson.setGeburtsDatum(person.getGeburtsDatum());
 		jpaPerson.setStrasse(person.getStrasse());
 		jpaPerson.setHausnr(person.getHausnr());
 		jpaPerson.setPlz(person.getPlz());
@@ -120,6 +138,7 @@ public class JpaPerson {
 		person.setOid(oid);
 		person.setName(name);
 		person.setVorname(vorname);
+		person.setGeburtsDatum(geburtsDatum);
 		person.setStrasse(strasse);
 		person.setHausnr(hausnr);
 		person.setPlz(plz);
