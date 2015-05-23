@@ -48,7 +48,19 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 
 	@Override
 	public void personLoeschen(Person person) throws PersonException {
-		// TODO Auto-generated method stub
+		// check params
+		if (person == null) {
+			throw new PersonException("person == null");
+		}
+		
+		// declare query
+		TypedQuery<JpaPerson> query = em.createQuery("select p from JpaPerson p where p.oid = :oid", JpaPerson.class);
+		
+		// execute query
+		JpaPerson jpaPerson = query.setParameter("oid", person.getOid()).getSingleResult();
+		
+		// delete from db
+		em.remove(jpaPerson);
 		
 	}
 
