@@ -18,6 +18,30 @@ public class Einheit {
 	
 	String oberEinheitOid;
 
+	public Einheit() {
+		super();
+	}
+	
+	public Einheit(String oid) {
+		super();
+		this.oid = oid;
+	}
+	
+	public Einheit(Einheit einheit) {
+		super();
+		
+		// copy fields
+		if (einheit != null) {
+			this.oid = einheit.oid;
+			this.art = einheit.art;
+			this.name = einheit.name;
+			this.id = einheit.id;
+			this.created = einheit.created;
+			this.oberEinheitOid = einheit.oberEinheitOid;
+		}
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Einheit [oid=" + oid + ", art=" + art + ", id=" + id
@@ -73,6 +97,14 @@ public class Einheit {
 		return new ArrayList<Einheit>();
 	}
 	
+	public String getOberEinheitOid() {
+		return oberEinheitOid;
+	}
+
+	public void setOberEinheitOid(String oberEinheitOid) {
+		this.oberEinheitOid = oberEinheitOid;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

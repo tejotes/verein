@@ -13,9 +13,8 @@
 	org.apache.felix.gogo.runtime;version='[0.10.0,0.10.1)',\
 	org.apache.felix.gogo.shell;version='[0.10.0,0.10.1)',\
 	org.apache.felix.metatype;version='[1.0.12,1.0.13)',\
-	verein.PersonApi;version=latest,\
-	verein.PersonMemory;version=latest,\
-	verein.PersonTester;version=latest
+	verein.EinheitApi;version=latest,\
+	verein.EinheitMemory;version=latest
 
 -runrequires:  \
 	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
@@ -24,6 +23,5 @@
 	osgi.identity;filter:='(osgi.identity=org.apache.felix.dependencymanager.runtime)',\
 	osgi.identity;filter:='(osgi.identity=org.apache.felix.dependencymanager.shell)',\
 	osgi.identity;filter:='(osgi.identity=org.apache.felix.metatype)',\
-	osgi.identity;filter:='(osgi.identity=verein.PersonApi)',\
-	osgi.identity;filter:='(osgi.identity=verein.PersonMemory)',\
-	osgi.identity;filter:='(osgi.identity=verein.PersonTester)'
+	osgi.identity;filter:='(osgi.identity=verein.EinheitApi)',\
+	osgi.identity;filter:='(osgi.identity=verein.EinheitMemory)'

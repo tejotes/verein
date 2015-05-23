@@ -13,4 +13,6 @@ public interface EinheitApi {
 	public List<Einheit> einheitList4oberEinheit(Einheit oberEinheit) throws EinheitException;
 	
 	public List<Einheit> einheitList4art(EinheitArt art) throws EinheitException;
+	
+	public List<Einheit> einheitList() throws EinheitException;
 }
