@@ -19,11 +19,15 @@ import org.apache.felix.dm.annotation.api.ServiceDependency;
 import de.popts.verein.person.Person;
 import de.popts.verein.person.PersonApi;
 import de.popts.verein.person.PersonException;
+import de.popts.verein.person.PersonListenerApi;
 
 @Transactional
 @Component(provides = ManagedTransactional.class)
 public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 
+	@ServiceDependency
+	private volatile PersonListenerApi listenerApi;
+	
 	@ServiceDependency
 	private volatile EntityManager em;
 	
@@ -41,6 +45,9 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 		
 		// trivial implementation
 		em.persist(JpaPerson.fromPerson(person));
+		
+		// notify listeners
+		listenerApi.personAngelegt(person);
 		
 		// return person
 		return person;
@@ -62,12 +69,17 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 		// delete from db
 		em.remove(jpaPerson);
 		
+		// notify listeners
+		listenerApi.personGeloescht(person);
 	}
 
 	@Override
 	public Person personAendern(Person person) throws PersonException {
 		// trivial implementation
 		em.persist(JpaPerson.fromPerson(person));
+		
+		// notify listeners
+		listenerApi.personGeaendert(person);
 		
 		// return person
 		return person;

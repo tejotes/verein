@@ -19,22 +19,13 @@ import de.popts.verein.person.Person;
 import de.popts.verein.person.PersonApi;
 import de.popts.verein.person.PersonException;
 import de.popts.verein.person.PersonListener;
+import de.popts.verein.person.PersonListenerApi;
 
 @Component
 public class PersonApiMemoryImpl implements PersonApi {
 
-	final private Map<ServiceReference, PersonListener> listenerMap = new ConcurrentHashMap<>();
-
-	@ServiceDependency(removed = "listenerRemoved", required = false)
-	public void listenerAdded(ServiceReference ref, PersonListener listener) {
-		listenerMap.put(ref, listener);
-		System.out.println("listener added: " + listener);
-	}
-
-	public void listenerRemoved(ServiceReference ref) {
-		listenerMap.remove(ref);
-		System.out.println("listener removed: " + ref);
-	}
+	@ServiceDependency
+	private volatile PersonListenerApi listenerApi;
 
 	@Override
 	public Person personAnlegen(Person person) throws PersonException {
@@ -51,9 +42,7 @@ public class PersonApiMemoryImpl implements PersonApi {
 		personStore.put(newOid, new Person(person));
 
 		// notify listeners
-		for (PersonListener listener : listenerMap.values()) {
-			listener.personAngelegt(person);
-		}
+		listenerApi.personAngelegt(person);
 
 		// return person
 		return person;
@@ -80,9 +69,7 @@ public class PersonApiMemoryImpl implements PersonApi {
 		}
 
 		// notify listeners
-		for (PersonListener listener : listenerMap.values()) {
-			listener.personGeloescht(person);
-		}
+		listenerApi.personGeloescht(person);
 	}
 
 	@Override
@@ -109,9 +96,7 @@ public class PersonApiMemoryImpl implements PersonApi {
 		personStore.put(oid, person);
 
 		// notify listeners
-		for (PersonListener listener : listenerMap.values()) {
-			listener.personGeaendert(person);
-		}
+		listenerApi.personGeaendert(person);
 
 		// return result
 		return person;
