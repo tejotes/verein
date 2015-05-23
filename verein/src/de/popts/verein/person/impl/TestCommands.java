@@ -1,4 +1,4 @@
-package de.popts.verein.person.commands;
+package de.popts.verein.person.impl;
 
 import java.util.List;
 

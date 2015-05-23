@@ -13,6 +13,7 @@
 	org.amdatu.jpa.datasourcefactory;version='[1.1.0,1.1.1)',\
 	org.amdatu.jpa.extender;version='[2.0.1,2.0.2)',\
 	org.amdatu.jta;version='[2.0.0,2.0.1)',\
+	org.amdatu.jta.manager;version='[1.1.0,1.1.1)',\
 	org.amdatu.jta.manager;version='[1.1.1,1.1.2)',\
 	org.amdatu.jta.transactionmanager;version='[1.0.0,1.0.1)',\
 	org.amdatu.jta.transactionmanager;version='[1.0.1,1.0.2)',\
@@ -41,15 +42,11 @@
 	org.postgresql.jdbc41;version='[9.4.0,9.4.1)',\
 	osgi.enterprise;version='[4.2.0,4.2.1)',\
 	verein.PersonApi;version=latest,\
-	verein.PersonJpa;version=latest,\
-	verein.PersonTester;version=latest
+	verein.PersonJpa;version=latest
 
 -runrequires:  \
 	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
 	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
-	osgi.identity;filter:='(osgi.identity=verein.PersonApi)',\
-	osgi.identity;filter:='(osgi.identity=verein.PersonJpa)',\
-	osgi.identity;filter:='(osgi.identity=verein.PersonTester)',\
 	osgi.identity;filter:='(osgi.identity=org.amdatu.jpa.adapter)',\
 	osgi.identity;filter:='(osgi.identity=org.amdatu.jpa.adapter.eclipselink)',\
 	osgi.identity;filter:='(osgi.identity=org.amdatu.jpa.datasourcefactory)',\
@@ -76,6 +73,8 @@
 	osgi.identity;filter:='(osgi.identity=org.eclipse.persistence.asm)',\
 	osgi.identity;filter:='(osgi.identity=org.eclipse.persistence.core)',\
 	osgi.identity;filter:='(osgi.identity=org.eclipse.persistence.jpa)',\
-	osgi.identity;filter:='(osgi.identity=org.eclipse.persistence.jpa.jpql)'
+	osgi.identity;filter:='(osgi.identity=org.eclipse.persistence.jpa.jpql)',\
+	osgi.identity;filter:='(osgi.identity=verein.PersonApi)',\
+	osgi.identity;filter:='(osgi.identity=verein.PersonJpa)'
 
 	-runsystempackages: sun.reflect,sun.reflect.misc
