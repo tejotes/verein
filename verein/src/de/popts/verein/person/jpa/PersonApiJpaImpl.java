@@ -38,6 +38,11 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 
 	@Override
 	public Person personAnlegen(Person person) throws PersonException {
+		// check params
+		if (person == null) {
+			throw new PersonException("person==null");
+		}
+		
 		// set oid
 		if (person.getOid() == null) {
 			person.setOid(UUID.randomUUID().toString());
@@ -60,11 +65,8 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 			throw new PersonException("person == null");
 		}
 		
-		// declare query
-		TypedQuery<JpaPerson> query = em.createQuery("select p from JpaPerson p where p.oid = :oid", JpaPerson.class);
-		
 		// execute query
-		JpaPerson jpaPerson = query.setParameter("oid", person.getOid()).getSingleResult();
+		JpaPerson jpaPerson = jpaPerson4oid(person.getOid());
 		
 		// delete from db
 		em.remove(jpaPerson);
@@ -107,14 +109,22 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 
 	@Override
 	public Person get4oid(String oid) {
+		// execute query
+		JpaPerson jpaPerson = jpaPerson4oid(oid);
+		
+		// convert to Person
+		return (jpaPerson != null) ? jpaPerson.toPerson() : null;
+	}
+
+	private JpaPerson jpaPerson4oid(String oid) {
 		// declare query
 		TypedQuery<JpaPerson> query = em.createQuery("select p from JpaPerson p where p.oid = :oid", JpaPerson.class);
 		
 		// execute query
 		JpaPerson jpaPerson = query.setParameter("oid", oid).getSingleResult();
 		
-		// convert to Person
-		return (jpaPerson != null) ? jpaPerson.toPerson() : null;
+		// return result
+		return jpaPerson;
 	}
-
+	
 }

@@ -35,6 +35,10 @@ public class TestCommands {
 		long startMillis = System.currentTimeMillis();
 		List<Person> personList = personApi.listAll();
 
+		if (personList == null || personList.isEmpty()) {
+			System.out.println("no Person found.");
+		}
+		
 		for (Person person : personList) {
 			System.out.println("person: " + person);
 		}

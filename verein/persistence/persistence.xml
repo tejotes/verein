@@ -12,6 +12,7 @@
 	</jta-data-source>
 	
 	<class>de.popts.verein.person.jpa.JpaPerson</class>
+	<class>de.popts.verein.einheit.jpa.JpaEinheit</class>
   
 	<exclude-unlisted-classes>true</exclude-unlisted-classes>  
     

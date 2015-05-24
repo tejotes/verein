@@ -25,27 +25,19 @@ public class EinheitApiMemoryImpl implements EinheitApi {
 	private final Map<String, Einheit> einheitStore = new ConcurrentHashMap<>();
 	
 	@Override
-	public Einheit einheitErzeugen(EinheitArt art, String id, String name, Einheit oberEinheit) throws EinheitException {
+	public Einheit einheitErzeugen(Einheit einheit) throws EinheitException {
 		// check params
-		if (art == null) {
+		if (einheit.getArt() == null) {
 			throw new EinheitException("art == null");
 		}
 		
+		String id = einheit.getId();
 		if (id==null || id.isEmpty()) {
 			throw new EinheitException("id == null or empty");
 		}
 		
 		// create new Einheit
-		Einheit einheit = new Einheit();
 		einheit.setOid(UUID.randomUUID().toString());
-		einheit.setArt(art);
-		einheit.setId(id);
-		einheit.setName(name);
-		einheit.setCreated(new Date());
-		
-		if (oberEinheit != null) {
-			einheit.setOberEinheitOid(oberEinheit.getOid());
-		}
 		
 		// put clone in store
 		einheitStore.put(einheit.getOid(), new Einheit(einheit));
@@ -80,12 +72,8 @@ public class EinheitApiMemoryImpl implements EinheitApi {
 	}
 
 	@Override
-	public Einheit einheit4oid(Einheit einheit) throws EinheitException {
+	public Einheit einheit4oid(String oid) throws EinheitException {
 		// check params
-		if (einheit == null) {
-			throw new EinheitException("einheit == null");
-		}
-		String oid = einheit.getOid();
 		if (oid == null) {
 			throw new EinheitException("oid == null");
 		}

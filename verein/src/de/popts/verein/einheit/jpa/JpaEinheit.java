@@ -1,56 +1,66 @@
-package de.popts.verein.einheit;
+package de.popts.verein.einheit.jpa;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-import org.apache.felix.dm.annotation.api.ServiceDependency;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-public class Einheit {
+import de.popts.verein.einheit.Einheit;
+import de.popts.verein.einheit.EinheitArt;
 
-	String oid;
+@Entity
+@Table(name = "einheit")
+public class JpaEinheit {
+
+	@Id
+	private String oid;
+
+	@Enumerated(EnumType.STRING)
+	private EinheitArt art;
 	
-	EinheitArt art;
+	private String id;
 	
-	String id;
+	private String name;
 	
-	String name;
-	
-	Date created;
+	@Temporal(TemporalType.TIMESTAMP)	
+	private Date created;
 	
 	String oberEinheitOid;
 
-	public Einheit() {
-		super();
-	}
-	
-	public Einheit(String oid) {
-		super();
-		this.oid = oid;
-	}
-	
-	public Einheit(Einheit einheit) {
-		super();
-		
-		// copy fields
-		if (einheit != null) {
-			this.oid = einheit.oid;
-			this.art = einheit.art;
-			this.name = einheit.name;
-			this.id = einheit.id;
-			this.created = einheit.created;
-			this.oberEinheitOid = einheit.oberEinheitOid;
-		}
-	}
-	
-	
-	@Override
-	public String toString() {
-		return "Einheit [oid=" + oid + ", art=" + art + ", id=" + id
-				+ ", name=" + name + ", created=" + created
-				+ ", oberEinheitOid=" + oberEinheitOid + "]";
-	}
+	public static JpaEinheit fromEinheit(Einheit einheit) {
+		JpaEinheit jpaEinheit = new JpaEinheit();
 
+		jpaEinheit.setOid(einheit.getOid());
+		jpaEinheit.setArt(einheit.getArt());
+		jpaEinheit.setId(einheit.getId());
+		jpaEinheit.setName(einheit.getName());
+		jpaEinheit.setCreated(einheit.getCreated());
+		jpaEinheit.setOberEinheitOid(einheit.getOberEinheitOid());
+		
+		// return result
+		return jpaEinheit;
+	}
+	
+	public Einheit toEinheit() {
+		
+		Einheit einheit = new Einheit();
+		
+		einheit.setOid(oid);
+		einheit.setArt(art);
+		einheit.setId(id);
+		einheit.setName(name);
+		einheit.setCreated(created);
+		einheit.setOberEinheitOid(oberEinheitOid);
+		
+		// return result
+		return einheit;
+	}
+	
 	public String getOid() {
 		return oid;
 	}
@@ -100,6 +110,13 @@ public class Einheit {
 	}
 
 	@Override
+	public String toString() {
+		return "JpaEinheit [oid=" + oid + ", art=" + art + ", id=" + id
+				+ ", name=" + name + ", created=" + created
+				+ ", oberEinheitOid=" + oberEinheitOid + "]";
+	}
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -107,7 +124,8 @@ public class Einheit {
 		result = prime * result + ((created == null) ? 0 : created.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((oberEinheitOid == null) ? 0 : oberEinheitOid.hashCode());
+		result = prime * result
+				+ ((oberEinheitOid == null) ? 0 : oberEinheitOid.hashCode());
 		result = prime * result + ((oid == null) ? 0 : oid.hashCode());
 		return result;
 	}
@@ -120,7 +138,7 @@ public class Einheit {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Einheit other = (Einheit) obj;
+		JpaEinheit other = (JpaEinheit) obj;
 		if (art != other.art)
 			return false;
 		if (created == null) {
@@ -149,7 +167,5 @@ public class Einheit {
 		} else if (!oid.equals(other.oid))
 			return false;
 		return true;
-	}
-	
-	
+	}	
 }
