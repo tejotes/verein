@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 import de.popts.verein.person.Person;
 
 @Entity
-@Table(name = "jpaperson")
+@Table(name = "person")
 public class JpaPerson {
 	
 	@Id
