@@ -5,7 +5,7 @@ public enum RollenArt {
 	ANY("ANY"), 
 	NONE("NONE"), 
 	MITGLIED("MITGLIED"), 
-	FUNKTIONArt("FUNKTION"), 
+	FUNKTION("FUNKTION"), 
 	EHRUNG("EHRUNG");
 
 	private final String text;

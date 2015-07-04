@@ -2,6 +2,7 @@ package de.popts.verein.rollentyp.memory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -223,9 +224,9 @@ public class RollenTypApiMemoryImpl implements RollenTypApi {
 		return rollenTypList;
 	}
 
-	private List<RollenTyp> filterRollenTypList(List<RollenTyp> rollenTypList, RollenArt rollenArt) throws RollenTypException {
+	private List<RollenTyp> filterRollenTypList(Collection<RollenTyp> rollenTypCollection, RollenArt rollenArt) throws RollenTypException {
 		// check params
-		if (rollenTypList == null) {
+		if (rollenTypCollection == null) {
 			throw new RollenTypException("rollenTypList == null");
 		}
 		if (rollenArt == null) {
@@ -233,8 +234,8 @@ public class RollenTypApiMemoryImpl implements RollenTypApi {
 		}
 		
 		// calc result
-		List<RollenTyp> resultList = new ArrayList<>(rollenTypList.size());
-		for (RollenTyp rollenTyp : rollenTypList) {
+		List<RollenTyp> resultList = new ArrayList<>(rollenTypCollection.size());
+		for (RollenTyp rollenTyp : rollenTypCollection) {
 			if (rollenArt == RollenArt.ANY || rollenArt == rollenTyp.getArt()) {
 				resultList.add(rollenTyp);
 			}
@@ -294,6 +295,23 @@ public class RollenTypApiMemoryImpl implements RollenTypApi {
 
 		// not found
 		return false;
+	}
+
+	@Override
+	public List<RollenTyp> listRollenTyp4RollenArt(RollenArt rollenArt) throws RollenTypException {
+		
+		System.out.println("size="+rollenTypMap.size());
+		
+		// check rollenArt
+		if (rollenArt == null) {
+			throw new RollenTypException("rollenArt == null");
+		}
+		
+		// declare result
+		List<RollenTyp> rollenTypList = filterRollenTypList(rollenTypMap.values(), rollenArt);
+
+		// return result
+		return rollenTypList;
 	}
 	
 }

@@ -10,6 +10,10 @@ public class RollenTyp {
 	
 	String name;
 	
+	public RollenTyp() {
+		super();
+	}
+	
 	public RollenTyp(String oid) {
 		super();
 		this.oid = oid;
@@ -18,9 +22,9 @@ public class RollenTyp {
 	public RollenTyp(RollenTyp rollenTyp) {
 		super();
 		this.oid = rollenTyp.getOid();
+		this.art = rollenTyp.getArt();
 		this.id = rollenTyp.getId();
 		this.name = rollenTyp.getName();
-		this.art = rollenTyp.getArt();
 	}
 	
 	

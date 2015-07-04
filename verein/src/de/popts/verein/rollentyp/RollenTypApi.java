@@ -25,5 +25,7 @@ public interface RollenTypApi {
 	
 	public List<RollenTyp> listAllRollenTyp4EinheitAndRollenArt(Einheit einheit, RollenArt rollenArt) throws RollenTypException;
 	
+	public List<RollenTyp> listRollenTyp4RollenArt(RollenArt rollenArt) throws RollenTypException;
+
 	public boolean isValidRollenTyp4Einheit(Einheit einheit, RollenTyp rollenTyp) throws RollenTypException;
 }
