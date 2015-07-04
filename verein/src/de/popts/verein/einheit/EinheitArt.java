@@ -2,6 +2,8 @@ package de.popts.verein.einheit;
 
 public enum EinheitArt {
 
+	ANY("ANY"),
+	NONE("NONE"),
 	VEREIN("VEREIN"), 
 	ABTEILUNG("ABTEILUNG"), 
 	GRUPPE("GRUPPE");

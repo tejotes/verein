@@ -1,8 +1,6 @@
 package de.popts.verein.einheit;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import org.apache.felix.dm.annotation.api.ServiceDependency;
 
