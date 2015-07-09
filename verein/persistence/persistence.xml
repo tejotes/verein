@@ -13,6 +13,8 @@
 	
 	<class>de.popts.verein.person.jpa.JpaPerson</class>
 	<class>de.popts.verein.einheit.jpa.JpaEinheit</class>
+	<class>de.popts.verein.rollentyp.jpa.JpaRollenTyp</class>
+	<class>de.popts.verein.rollentyp.jpa.JpaRollenTypZuordnung</class>
   
 	<exclude-unlisted-classes>true</exclude-unlisted-classes>  
     
