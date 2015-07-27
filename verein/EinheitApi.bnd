@@ -1,5 +1,0 @@
-Export-Package:  \
-	de.popts.verein.einheit
-Bundle-Version: 0.0.0.${tstamp}
-Private-Package:  \
-	de.popts.verein.einheit.impl
