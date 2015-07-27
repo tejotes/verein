@@ -41,10 +41,9 @@
 	org.ops4j.pax.logging.pax-logging-api;version='[1.7.0,1.7.1)',\
 	org.postgresql.jdbc41;version='[9.4.0,9.4.1)',\
 	osgi.enterprise;version='[4.2.0,4.2.1)',\
-	verein.PersonApi;version=latest,\
-	verein.PersonJpa;version=latest,\
 	verein.person.api;version=latest,\
-	verein.person.impl;version=latest
+	verein.person.impl;version=latest,\
+	verein.person.jpa;version=latest
 
 -runrequires:  \
 	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
@@ -78,6 +77,6 @@
 	osgi.identity;filter:='(osgi.identity=org.eclipse.persistence.jpa.jpql)',\
 	osgi.identity;filter:='(osgi.identity=verein.person.api)',\
 	osgi.identity;filter:='(osgi.identity=verein.person.impl)',\
-	osgi.identity;filter:='(osgi.identity=verein.PersonJpa)'
+	osgi.identity;filter:='(osgi.identity=verein.person.jpa)'
 
 	-runsystempackages: sun.reflect,sun.reflect.misc
