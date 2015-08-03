@@ -32,7 +32,7 @@ public class RollenTypApiJpaImpl implements RollenTypApi, ManagedTransactional {
 	@ServiceDependency
 	private volatile EinheitApi einheitApi;
 	
-	@ServiceDependency
+	@ServiceDependency(filter="(osgi.unit.name=VereinRollenTypPU)")
 	private volatile EntityManager em;
 	
 	@Override

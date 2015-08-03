@@ -28,7 +28,7 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 	@ServiceDependency
 	private volatile PersonListenerApi listenerApi;
 	
-	@ServiceDependency
+	@ServiceDependency(filter="(osgi.unit.name=VereinPersonPU)")
 	private volatile EntityManager em;
 	
 	@Override

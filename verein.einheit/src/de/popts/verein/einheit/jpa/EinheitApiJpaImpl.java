@@ -26,7 +26,7 @@ public class EinheitApiJpaImpl implements EinheitApi, ManagedTransactional {
 	@ServiceDependency
 	private volatile EinheitListenerApi listerApi;
 	
-	@ServiceDependency
+	@ServiceDependency(filter="(osgi.unit.name=VereinEinheitPU)")
 	private volatile EntityManager em;
 	
 	@Override
