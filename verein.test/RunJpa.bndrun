@@ -46,7 +46,10 @@
 	verein.einheit.jpa;version=latest,\
 	verein.person.api;version=latest,\
 	verein.person.impl;version=latest,\
-	verein.person.jpa;version=latest
+	verein.person.jpa;version=latest,\
+	verein.rollentyp.api;version=latest,\
+	verein.rollentyp.impl;version=latest,\
+	verein.rollentyp.jpa;version=latest
 
 -runrequires:  \
 	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
@@ -84,6 +87,9 @@
 	osgi.identity;filter:='(osgi.identity=verein.person.api)',\
 	osgi.identity;filter:='(osgi.identity=verein.person.jpa)',\
 	osgi.identity;filter:='(osgi.identity=verein.person.impl)',\
-	osgi.identity;filter:='(osgi.identity=verein.person.jpa)'
+	osgi.identity;filter:='(osgi.identity=verein.person.jpa)',\
+	osgi.identity;filter:='(osgi.identity=verein.rollentyp.api)',\
+	osgi.identity;filter:='(osgi.identity=verein.rollentyp.impl)',\
+	osgi.identity;filter:='(osgi.identity=verein.rollentyp.jpa)'
 
 	-runsystempackages: sun.reflect,sun.reflect.misc
