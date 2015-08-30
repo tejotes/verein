@@ -8,7 +8,7 @@ import org.apache.felix.dm.annotation.api.ServiceDependency;
 import org.apache.felix.service.command.CommandProcessor;
 
 import de.popts.verein.person.api.Person;
-import de.popts.verein.person.api.PersonApi;
+import de.popts.verein.person.api.PersonService;
 import de.popts.verein.person.api.PersonException;
 
 @Component(properties = {
@@ -18,9 +18,9 @@ import de.popts.verein.person.api.PersonException;
 public class TestCommands {
 
 	@ServiceDependency
-	private volatile PersonApi personApi;
+	private volatile PersonService personApi;
 
-	public void store(String vorname, String name) throws PersonException {
+	public void store(String vorname, String name) throws Exception {
 		long startMillis = System.currentTimeMillis();
 		Person person = new Person();
 		person.setName(name);
@@ -66,7 +66,7 @@ public class TestCommands {
 		System.out.println("duration: " + durationMillis + "[ms]");
 	}
 
-	public void remove(String oid) throws PersonException {
+	public void remove(String oid) throws Exception {
 		long startMillis = System.currentTimeMillis();
 		Person person = personApi.get4oid(oid);
 		personApi.personLoeschen(person);

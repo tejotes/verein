@@ -13,38 +13,37 @@ import org.apache.felix.dm.annotation.api.Component;
 import org.apache.felix.dm.annotation.api.ServiceDependency;
 
 import de.popts.verein.einheit.api.Einheit;
-import de.popts.verein.einheit.api.EinheitApi;
+import de.popts.verein.einheit.api.EinheitService;
 import de.popts.verein.einheit.api.EinheitArt;
 import de.popts.verein.einheit.api.EinheitException;
 import de.popts.verein.rollentyp.api.RollenArt;
 import de.popts.verein.rollentyp.api.RollenTyp;
-import de.popts.verein.rollentyp.api.RollenTypApi;
-import de.popts.verein.rollentyp.api.RollenTypException;
-import de.popts.verein.rollentyp.api.RollenTypListenerApi;
+import de.popts.verein.rollentyp.api.RollenTypService;
+import de.popts.verein.rollentyp.api.RollenTypListenerService;
 
 @Transactional
 @Component(provides = ManagedTransactional.class)
-public class RollenTypApiJpaImpl implements RollenTypApi, ManagedTransactional {
+public class RollenTypApiJpaImpl implements RollenTypService, ManagedTransactional {
 
 	@ServiceDependency
-	private volatile RollenTypListenerApi rollenTypListenerApi;
+	private volatile RollenTypListenerService rollenTypListenerService;
 	
 	@ServiceDependency
-	private volatile EinheitApi einheitApi;
+	private volatile EinheitService einheitService;
 	
 	@ServiceDependency(filter="(osgi.unit.name=VereinRollenTypPU)")
 	private volatile EntityManager em;
 	
 	@Override
 	public Class<?>[] getManagedInterfaces() {
-		return new Class[] {RollenTypApi.class};
+		return new Class[] {RollenTypService.class};
 	}
 
 	@Override
-	public RollenTyp rollenTypErzeugen(RollenTyp rollenTyp) throws RollenTypException {
+	public RollenTyp rollenTypErzeugen(RollenTyp rollenTyp) throws Exception {
 		// check params
 		if (rollenTyp == null) {
-			throw new RollenTypException("rollenTyp == null");
+			throw new Exception("rollenTyp == null");
 		}
 		
 		// set oid
@@ -55,17 +54,17 @@ public class RollenTypApiJpaImpl implements RollenTypApi, ManagedTransactional {
 		em.persist(jpaRollenTyp);
 
 		// notify listeners
-		rollenTypListenerApi.rollenTypAngelegt(rollenTyp);
+		rollenTypListenerService.rollenTypAngelegt(rollenTyp);
 
 		// return result
 		return rollenTyp;
 	}
 
 	@Override
-	public void rollenTypLoeschen(RollenTyp rollenTyp) throws RollenTypException {
+	public void rollenTypLoeschen(RollenTyp rollenTyp) throws Exception {
 		// check params
 		if (rollenTyp == null) {
-			throw new RollenTypException("rollenTyp == null");
+			throw new Exception("rollenTyp == null");
 		}
 
 		// lookup in DB
@@ -75,23 +74,23 @@ public class RollenTypApiJpaImpl implements RollenTypApi, ManagedTransactional {
 		em.remove(jpaRollenTyp);
 		
 		// notify listener
-		rollenTypListenerApi.rollenTypGeloescht(rollenTyp);
+		rollenTypListenerService.rollenTypGeloescht(rollenTyp);
 	}
 
 	@Override
-	public void addRollenTypToEinheitArt(RollenTyp rollenTyp, EinheitArt einheitArt) throws RollenTypException {
+	public void addRollenTypToEinheitArt(RollenTyp rollenTyp, EinheitArt einheitArt) throws Exception {
 		// check rolenTyp
 		if (rollenTyp == null) {
-			throw new RollenTypException("rollenTyp == null");
+			throw new Exception("rollenTyp == null");
 		}
 		JpaRollenTyp jpaRollenTyp = jpaRollenTyp4oid(rollenTyp.getOid());
 		if (jpaRollenTyp == null) {
-			throw new RollenTypException("unknown rollenTyp: "+rollenTyp.getOid());
+			throw new Exception("unknown rollenTyp: "+rollenTyp.getOid());
 		}
 		
 		// check einheitArt
 		if (einheitArt == null) {
-			throw new RollenTypException("einheitArt == null");
+			throw new Exception("einheitArt == null");
 		}
 		
 		// check duplicate
@@ -108,25 +107,25 @@ public class RollenTypApiJpaImpl implements RollenTypApi, ManagedTransactional {
 	}
 
 	@Override
-	public void removeRollenTypFromEinheitArt(RollenTyp rollenTyp, EinheitArt einheitArt) throws RollenTypException {
+	public void removeRollenTypFromEinheitArt(RollenTyp rollenTyp, EinheitArt einheitArt) throws Exception {
 		// check rolenTyp
 		if (rollenTyp == null) {
-			throw new RollenTypException("rollenTyp == null");
+			throw new Exception("rollenTyp == null");
 		}
 		JpaRollenTyp jpaRollenTyp = jpaRollenTyp4oid(rollenTyp.getOid());
 		if (jpaRollenTyp == null) {
-			throw new RollenTypException("unknown rollenTyp: "+rollenTyp.getOid());
+			throw new Exception("unknown rollenTyp: "+rollenTyp.getOid());
 		}
 		
 		// check einheitArt
 		if (einheitArt == null) {
-			throw new RollenTypException("einheitArt == null");
+			throw new Exception("einheitArt == null");
 		}
 		
 		// check existence
 		JpaRollenTypZuordnung jpaRollenTypZuordnung = jpaRollenTypZuordnung4RollenTypAndEinheitArt(rollenTyp.getOid(), einheitArt);
 		if (jpaRollenTypZuordnung == null) {
-			throw new RollenTypException("RollenTypZuordnung does not exist: " + rollenTyp.getOid() + ", " + einheitArt);
+			throw new Exception("RollenTypZuordnung does not exist: " + rollenTyp.getOid() + ", " + einheitArt);
 		}
 		
 		// remove from DB
@@ -134,21 +133,21 @@ public class RollenTypApiJpaImpl implements RollenTypApi, ManagedTransactional {
 	}
 
 	@Override
-	public void addRollenTypToEinheit(RollenTyp rollenTyp, Einheit einheit) throws RollenTypException {
+	public void addRollenTypToEinheit(RollenTyp rollenTyp, Einheit einheit) throws Exception {
 		// check rolenTyp
 		if (rollenTyp == null) {
-			throw new RollenTypException("rollenTyp == null");
+			throw new Exception("rollenTyp == null");
 		}
 		JpaRollenTyp jpaRollenTyp = jpaRollenTyp4oid(rollenTyp.getOid());
 		if (jpaRollenTyp == null) {
-			throw new RollenTypException("unknown rollenTyp: "+rollenTyp.getOid());
+			throw new Exception("unknown rollenTyp: "+rollenTyp.getOid());
 		}
 		
 		// check einheit
 		try {
-			einheit = einheitApi.einheit4oid(einheit.getOid());
+			einheit = einheitService.einheit4oid(einheit.getOid());
 		} catch (EinheitException e) {
-			throw new RollenTypException("einheit == null");
+			throw new Exception("einheit == null");
 		}
 		
 		// check duplicate
@@ -165,31 +164,31 @@ public class RollenTypApiJpaImpl implements RollenTypApi, ManagedTransactional {
 	}
 
 	@Override
-	public List<RollenTyp> listRollenTyp4EinheitArtAndRollenArt(EinheitArt einheitArt, RollenArt rollenArt) throws RollenTypException {
+	public List<RollenTyp> listRollenTyp4EinheitArtAndRollenArt(EinheitArt einheitArt, RollenArt rollenArt) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void removeRollenTypFromEinheit(RollenTyp rollenTyp, Einheit einheit) throws RollenTypException {
+	public void removeRollenTypFromEinheit(RollenTyp rollenTyp, Einheit einheit) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public List<RollenTyp> listRollenTyp4EinheitAndRollenArt(Einheit einheit, RollenArt rollenArt) throws RollenTypException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<RollenTyp> listAllRollenTyp4EinheitAndRollenArt(Einheit einheit, RollenArt rollenArt) throws RollenTypException {
+	public List<RollenTyp> listRollenTyp4EinheitAndRollenArt(Einheit einheit, RollenArt rollenArt) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<RollenTyp> listRollenTyp4RollenArt(RollenArt rollenArt) throws RollenTypException {
+	public List<RollenTyp> listAllRollenTyp4EinheitAndRollenArt(Einheit einheit, RollenArt rollenArt) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<RollenTyp> listRollenTyp4RollenArt(RollenArt rollenArt) throws Exception {
 		
 		// XXX DUMMY implementation
 		
@@ -204,7 +203,7 @@ public class RollenTypApiJpaImpl implements RollenTypApi, ManagedTransactional {
 	}
 
 	@Override
-	public boolean isValidRollenTyp4Einheit(Einheit einheit, RollenTyp rollenTyp) throws RollenTypException {
+	public boolean isValidRollenTyp4Einheit(Einheit einheit, RollenTyp rollenTyp) throws Exception {
 		// TODO Auto-generated method stub
 		return false;
 	}

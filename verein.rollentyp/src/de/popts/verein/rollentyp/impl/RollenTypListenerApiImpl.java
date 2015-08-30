@@ -10,10 +10,10 @@ import org.osgi.framework.ServiceReference;
 import de.popts.verein.rollentyp.api.RollenTyp;
 import de.popts.verein.rollentyp.api.RollenTypException;
 import de.popts.verein.rollentyp.api.RollenTypListener;
-import de.popts.verein.rollentyp.api.RollenTypListenerApi;
+import de.popts.verein.rollentyp.api.RollenTypListenerService;
 
 @Component
-public class RollenTypListenerApiImpl implements RollenTypListenerApi {
+public class RollenTypListenerApiImpl implements RollenTypListenerService {
 
 	final private Map<ServiceReference, RollenTypListener> listenerMap = new ConcurrentHashMap<>();
 
@@ -29,14 +29,14 @@ public class RollenTypListenerApiImpl implements RollenTypListenerApi {
 	}
 
 	@Override
-	public void rollenTypAngelegt(RollenTyp rollenTyp) throws RollenTypException {
+	public void rollenTypAngelegt(RollenTyp rollenTyp) throws Exception {
 		for (RollenTypListener listener : listenerMap.values()) {
 			listener.rollenTypAngelegt(rollenTyp);
 		}
 	}
 
 	@Override
-	public void rollenTypGeloescht(RollenTyp rollenTyp) throws RollenTypException {
+	public void rollenTypGeloescht(RollenTyp rollenTyp) throws Exception {
 		for (RollenTypListener listener : listenerMap.values()) {
 			listener.rollenTypGeloescht(rollenTyp);
 		}

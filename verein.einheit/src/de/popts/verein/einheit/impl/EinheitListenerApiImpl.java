@@ -9,10 +9,10 @@ import org.osgi.framework.ServiceReference;
 
 import de.popts.verein.einheit.api.Einheit;
 import de.popts.verein.einheit.api.EinheitListener;
-import de.popts.verein.einheit.api.EinheitListenerApi;
+import de.popts.verein.einheit.api.EinheitListenerService;
 
 @Component
-public class EinheitListenerApiImpl implements EinheitListenerApi {
+public class EinheitListenerApiImpl implements EinheitListenerService {
 
 	final private Map<ServiceReference, EinheitListener> listenerMap = new ConcurrentHashMap<>();
 	
@@ -28,7 +28,7 @@ public class EinheitListenerApiImpl implements EinheitListenerApi {
 	}
 	
 	@Override
-	public void einheitAngelegt(Einheit einheit) {
+	public void einheitAngelegt(Einheit einheit) throws Exception {
 		// notify all listeners
 		for (EinheitListener listener : listenerMap.values()) {
 			listener.einheitAngelegt(einheit);
@@ -36,7 +36,7 @@ public class EinheitListenerApiImpl implements EinheitListenerApi {
 	}
 
 	@Override
-	public void einheitGeloescht(Einheit einheit) {
+	public void einheitGeloescht(Einheit einheit) throws Exception {
 		// notify all listeners
 		for (EinheitListener listener : listenerMap.values()) {
 			listener.einheitGeloescht(einheit);

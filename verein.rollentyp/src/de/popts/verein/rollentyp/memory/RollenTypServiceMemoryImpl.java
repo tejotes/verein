@@ -16,11 +16,11 @@ import de.popts.verein.einheit.api.Einheit;
 import de.popts.verein.einheit.api.EinheitArt;
 import de.popts.verein.rollentyp.api.RollenArt;
 import de.popts.verein.rollentyp.api.RollenTyp;
-import de.popts.verein.rollentyp.api.RollenTypApi;
+import de.popts.verein.rollentyp.api.RollenTypService;
 import de.popts.verein.rollentyp.api.RollenTypException;
 
 @Component
-public class RollenTypApiMemoryImpl implements RollenTypApi {
+public class RollenTypServiceMemoryImpl implements RollenTypService {
 
 	private Map<String, RollenTyp> rollenTypMap = new ConcurrentHashMap<>();
 	private Map<Einheit, List<RollenTyp>> rollenTypList2EinheitMap = new ConcurrentHashMap<>();

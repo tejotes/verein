@@ -14,28 +14,28 @@ import org.apache.felix.dm.annotation.api.Component;
 import org.apache.felix.dm.annotation.api.ServiceDependency;
 
 import de.popts.verein.einheit.api.Einheit;
-import de.popts.verein.einheit.api.EinheitApi;
+import de.popts.verein.einheit.api.EinheitService;
 import de.popts.verein.einheit.api.EinheitArt;
 import de.popts.verein.einheit.api.EinheitException;
-import de.popts.verein.einheit.api.EinheitListenerApi;
+import de.popts.verein.einheit.api.EinheitListenerService;
 
 @Transactional
 @Component(provides = ManagedTransactional.class)
-public class EinheitApiJpaImpl implements EinheitApi, ManagedTransactional {
+public class EinheitApiJpaImpl implements EinheitService, ManagedTransactional {
 
 	@ServiceDependency
-	private volatile EinheitListenerApi listerApi;
+	private volatile EinheitListenerService listerApi;
 	
 	@ServiceDependency(filter="(osgi.unit.name=VereinEinheitPU)")
 	private volatile EntityManager em;
 	
 	@Override
 	public Class<?>[] getManagedInterfaces() {
-		return new Class[] {EinheitApi.class};
+		return new Class[] {EinheitService.class};
 	}
 
 	@Override
-	public Einheit einheitErzeugen(Einheit einheit) throws EinheitException {
+	public Einheit einheitErzeugen(Einheit einheit) throws Exception {
 		// check params
 		if (einheit == null) {
 			throw new EinheitException("einheit == null");
@@ -60,7 +60,7 @@ public class EinheitApiJpaImpl implements EinheitApi, ManagedTransactional {
 	}
 
 	@Override
-	public void einheitLoeschen(Einheit einheit) throws EinheitException {
+	public void einheitLoeschen(Einheit einheit) throws Exception {
 		// check params
 		if (einheit == null) {
 			throw new EinheitException("einheit == null");
@@ -83,7 +83,7 @@ public class EinheitApiJpaImpl implements EinheitApi, ManagedTransactional {
 	}
 
 	@Override
-	public Einheit einheit4oid(String oid) throws EinheitException {
+	public Einheit einheit4oid(String oid) throws Exception {
 		// check params
 		if (oid == null) {
 			throw new EinheitException("oid == null");
@@ -100,7 +100,7 @@ public class EinheitApiJpaImpl implements EinheitApi, ManagedTransactional {
 	}
 
 	@Override
-	public List<Einheit> einheitList4oberEinheit(Einheit oberEinheit) throws EinheitException {
+	public List<Einheit> einheitList4oberEinheit(Einheit oberEinheit) throws Exception {
 		// check params
 		if (oberEinheit == null) {
 			throw new EinheitException("oberEinheit == null");
@@ -115,7 +115,7 @@ public class EinheitApiJpaImpl implements EinheitApi, ManagedTransactional {
 	}
 
 	@Override
-	public List<Einheit> einheitList4art(EinheitArt art) throws EinheitException {
+	public List<Einheit> einheitList4art(EinheitArt art) throws Exception {
 		// execute query
 		TypedQuery<JpaEinheit> query = em.createQuery("select e from JpaEinheit e where e.art = :art", JpaEinheit.class);
 		
@@ -124,7 +124,7 @@ public class EinheitApiJpaImpl implements EinheitApi, ManagedTransactional {
 	}
 
 	@Override
-	public List<Einheit> einheitList() throws EinheitException {
+	public List<Einheit> einheitList() throws Exception {
 		// execute query
 		TypedQuery<JpaEinheit> query = em.createQuery("select e from JpaEinheit e", JpaEinheit.class);
 		

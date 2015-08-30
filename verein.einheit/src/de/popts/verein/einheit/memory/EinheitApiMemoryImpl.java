@@ -11,21 +11,21 @@ import org.apache.felix.dm.annotation.api.Component;
 import org.apache.felix.dm.annotation.api.ServiceDependency;
 
 import de.popts.verein.einheit.api.Einheit;
-import de.popts.verein.einheit.api.EinheitApi;
+import de.popts.verein.einheit.api.EinheitService;
 import de.popts.verein.einheit.api.EinheitArt;
 import de.popts.verein.einheit.api.EinheitException;
-import de.popts.verein.einheit.api.EinheitListenerApi;
+import de.popts.verein.einheit.api.EinheitListenerService;
 
 @Component
-public class EinheitApiMemoryImpl implements EinheitApi {
+public class EinheitApiMemoryImpl implements EinheitService {
 
 	@ServiceDependency
-	private volatile EinheitListenerApi listenerApi;
+	private volatile EinheitListenerService listenerApi;
 	
 	private final Map<String, Einheit> einheitStore = new ConcurrentHashMap<>();
 	
 	@Override
-	public Einheit einheitErzeugen(Einheit einheit) throws EinheitException {
+	public Einheit einheitErzeugen(Einheit einheit) throws Exception {
 		// check params
 		if (einheit.getArt() == null) {
 			throw new EinheitException("art == null");
@@ -51,7 +51,7 @@ public class EinheitApiMemoryImpl implements EinheitApi {
 	}
 
 	@Override
-	public void einheitLoeschen(Einheit einheit) throws EinheitException {
+	public void einheitLoeschen(Einheit einheit) throws Exception {
 		// check params
 		if (einheit == null) {
 			throw new EinheitException("einheit == null");
@@ -73,7 +73,7 @@ public class EinheitApiMemoryImpl implements EinheitApi {
 	}
 
 	@Override
-	public Einheit einheit4oid(String oid) throws EinheitException {
+	public Einheit einheit4oid(String oid) throws Exception {
 		// check params
 		if (oid == null) {
 			throw new EinheitException("oid == null");
@@ -87,7 +87,7 @@ public class EinheitApiMemoryImpl implements EinheitApi {
 	}
 
 	@Override
-	public List<Einheit> einheitList4oberEinheit(Einheit oberEinheit) throws EinheitException {
+	public List<Einheit> einheitList4oberEinheit(Einheit oberEinheit) throws Exception {
 		// check params
 		if (oberEinheit == null) {
 			throw new EinheitException("oberEinheit == null");
@@ -112,7 +112,7 @@ public class EinheitApiMemoryImpl implements EinheitApi {
 	}
 
 	@Override
-	public List<Einheit> einheitList4art(EinheitArt art) throws EinheitException {
+	public List<Einheit> einheitList4art(EinheitArt art) throws Exception {
 		// check params
 		if (art == null) {
 			throw new EinheitException("art == null");
@@ -133,7 +133,7 @@ public class EinheitApiMemoryImpl implements EinheitApi {
 	}
 
 	@Override
-	public List<Einheit> einheitList() throws EinheitException {
+	public List<Einheit> einheitList() throws Exception {
 		// declare result
 		List<Einheit> einheitList = new ArrayList<>(einheitStore.values().size());
 		

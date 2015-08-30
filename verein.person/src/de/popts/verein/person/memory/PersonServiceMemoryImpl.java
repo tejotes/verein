@@ -16,19 +16,19 @@ import org.apache.felix.dm.annotation.api.Stop;
 import org.osgi.framework.ServiceReference;
 
 import de.popts.verein.person.api.Person;
-import de.popts.verein.person.api.PersonApi;
+import de.popts.verein.person.api.PersonService;
 import de.popts.verein.person.api.PersonException;
 import de.popts.verein.person.api.PersonListener;
-import de.popts.verein.person.api.PersonListenerApi;
+import de.popts.verein.person.api.PersonListenerService;
 
 @Component
-public class PersonApiMemoryImpl implements PersonApi {
+public class PersonServiceMemoryImpl implements PersonService {
 
 	@ServiceDependency
-	private volatile PersonListenerApi listenerApi;
+	private volatile PersonListenerService listenerApi;
 
 	@Override
-	public Person personAnlegen(Person person) throws PersonException {
+	public Person personAnlegen(Person person) throws Exception {
 		// check params
 		if (person == null) {
 			throw new PersonException("person == null");
@@ -49,7 +49,7 @@ public class PersonApiMemoryImpl implements PersonApi {
 	}
 
 	@Override
-	public void personLoeschen(Person person) throws PersonException {
+	public void personLoeschen(Person person) throws Exception {
 		// check params
 		if (person == null) {
 			throw new PersonException("person == null");
@@ -73,7 +73,7 @@ public class PersonApiMemoryImpl implements PersonApi {
 	}
 
 	@Override
-	public Person personAendern(Person person) throws PersonException {
+	public Person personAendern(Person person) throws Exception {
 		// check params
 		if (person == null) {
 			throw new PersonException("person == null");

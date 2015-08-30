@@ -9,10 +9,10 @@ import org.osgi.framework.ServiceReference;
 
 import de.popts.verein.person.api.Person;
 import de.popts.verein.person.api.PersonListener;
-import de.popts.verein.person.api.PersonListenerApi;
+import de.popts.verein.person.api.PersonListenerService;
 
 @Component
-public class PersonListenerApiImpl implements PersonListenerApi {
+public class PersonListenerServiceImpl implements PersonListenerService {
 	
 	final private Map<ServiceReference, PersonListener> listenerMap = new ConcurrentHashMap<>();
 

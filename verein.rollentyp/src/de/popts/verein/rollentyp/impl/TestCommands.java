@@ -9,8 +9,7 @@ import org.apache.felix.service.command.CommandProcessor;
 
 import de.popts.verein.rollentyp.api.RollenArt;
 import de.popts.verein.rollentyp.api.RollenTyp;
-import de.popts.verein.rollentyp.api.RollenTypApi;
-import de.popts.verein.rollentyp.api.RollenTypException;
+import de.popts.verein.rollentyp.api.RollenTypService;
 
 @Component(properties = {
 		@Property(name = CommandProcessor.COMMAND_SCOPE, value = "rollentyp"),
@@ -19,9 +18,9 @@ import de.popts.verein.rollentyp.api.RollenTypException;
 public class TestCommands {
 
 	@ServiceDependency
-	private volatile RollenTypApi rollenTypApi;
+	private volatile RollenTypService rollenTypService;
 	
-	public void store(String rollenArtString, String id, String name) throws RollenTypException {
+	public void store(String rollenArtString, String id, String name) throws Exception {
 		// start timer
 		long startMillis = System.currentTimeMillis();
 
@@ -30,7 +29,7 @@ public class TestCommands {
 		rollenTyp.setId(id);
 		rollenTyp.setName(name);
 
-		rollenTyp = rollenTypApi.rollenTypErzeugen(rollenTyp);
+		rollenTyp = rollenTypService.rollenTypErzeugen(rollenTyp);
 		System.out.println("RollenTyp erzeugt: " + rollenTyp);
 
 		// log
@@ -38,12 +37,12 @@ public class TestCommands {
 		System.out.println("duration: " + durationMillis + "[ms]");
 	}
 	
-	public void showAll() throws RollenTypException {
+	public void showAll() throws Exception {
 		// start timer
 		long startMillis = System.currentTimeMillis();
 
 		// get all RollenTyp
-		List<RollenTyp> rollenTypList = rollenTypApi.listRollenTyp4RollenArt(RollenArt.ANY); 
+		List<RollenTyp> rollenTypList = rollenTypService.listRollenTyp4RollenArt(RollenArt.ANY); 
 
 		// list on screen
 		for (RollenTyp rollenTyp : rollenTypList) {
@@ -55,7 +54,7 @@ public class TestCommands {
 		System.out.println("duration: " + durationMillis + "[ms]");
 	}
 	
-	public void showAll(String rollenArtString) throws RollenTypException {
+	public void showAll(String rollenArtString) throws Exception {
 		// start timer
 		long startMillis = System.currentTimeMillis();
 
@@ -63,7 +62,7 @@ public class TestCommands {
 		RollenArt rollenArt = RollenArt.valueOf(rollenArtString);
 		
 		// get all RollenTyp
-		List<RollenTyp> rollenTypList = rollenTypApi.listRollenTyp4RollenArt(rollenArt); 
+		List<RollenTyp> rollenTypList = rollenTypService.listRollenTyp4RollenArt(rollenArt); 
 
 		// list on screen
 		for (RollenTyp rollenTyp : rollenTypList) {

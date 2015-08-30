@@ -1,14 +1,10 @@
 package de.popts.verein.person.jpa;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
 
 import org.amdatu.jta.ManagedTransactional;
@@ -17,27 +13,27 @@ import org.apache.felix.dm.annotation.api.Component;
 import org.apache.felix.dm.annotation.api.ServiceDependency;
 
 import de.popts.verein.person.api.Person;
-import de.popts.verein.person.api.PersonApi;
+import de.popts.verein.person.api.PersonService;
 import de.popts.verein.person.api.PersonException;
-import de.popts.verein.person.api.PersonListenerApi;
+import de.popts.verein.person.api.PersonListenerService;
 
 @Transactional
 @Component(provides = ManagedTransactional.class)
-public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
+public class PersonServiceJpaImpl implements PersonService, ManagedTransactional {
 
 	@ServiceDependency
-	private volatile PersonListenerApi listenerApi;
+	private volatile PersonListenerService listenerApi;
 	
 	@ServiceDependency(filter="(osgi.unit.name=VereinPersonPU)")
 	private volatile EntityManager em;
 	
 	@Override
 	public Class<?>[] getManagedInterfaces() {
-		return new Class[] {PersonApi.class};
+		return new Class[] {PersonService.class};
 	}
 
 	@Override
-	public Person personAnlegen(Person person) throws PersonException {
+	public Person personAnlegen(Person person) throws Exception {
 		// check params
 		if (person == null) {
 			throw new PersonException("person==null");
@@ -59,7 +55,7 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 	}
 
 	@Override
-	public void personLoeschen(Person person) throws PersonException {
+	public void personLoeschen(Person person) throws Exception {
 		// check params
 		if (person == null) {
 			throw new PersonException("person == null");
@@ -76,7 +72,7 @@ public class PersonApiJpaImpl implements PersonApi, ManagedTransactional {
 	}
 
 	@Override
-	public Person personAendern(Person person) throws PersonException {
+	public Person personAendern(Person person) throws Exception {
 		// trivial implementation
 		em.persist(JpaPerson.fromPerson(person));
 		

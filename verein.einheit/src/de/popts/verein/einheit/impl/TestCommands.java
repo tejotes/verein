@@ -8,9 +8,8 @@ import org.apache.felix.dm.annotation.api.ServiceDependency;
 import org.apache.felix.service.command.CommandProcessor;
 
 import de.popts.verein.einheit.api.Einheit;
-import de.popts.verein.einheit.api.EinheitApi;
+import de.popts.verein.einheit.api.EinheitService;
 import de.popts.verein.einheit.api.EinheitArt;
-import de.popts.verein.einheit.api.EinheitException;
 
 @Component(properties = {
 		@Property(name = CommandProcessor.COMMAND_SCOPE, value = "einheit"),
@@ -19,14 +18,14 @@ import de.popts.verein.einheit.api.EinheitException;
 public class TestCommands {
 
 	@ServiceDependency
-	private volatile EinheitApi einheitApi;
+	private volatile EinheitService einheitService;
 	
-	public void show() throws EinheitException {
+	public void show() throws Exception {
 		// start timer
 		long startMillis = System.currentTimeMillis();
 		
 		// get list
-		List<Einheit> einheitList = einheitApi.einheitList();
+		List<Einheit> einheitList = einheitService.einheitList();
 		
 		if (einheitList == null || einheitList.isEmpty()) {
 			System.out.println("no Einheit found.");
@@ -42,12 +41,12 @@ public class TestCommands {
 		System.out.println("duration: " + durationMillis + "[ms]");
 	}
 	
-	public void show(String oid) throws EinheitException {
+	public void show(String oid) throws Exception {
 		// start timer
 		long startMillis = System.currentTimeMillis();
 		
 		// get einheit
-		Einheit einheit = einheitApi.einheit4oid(oid);
+		Einheit einheit = einheitService.einheit4oid(oid);
 		
 		// check result
 		if (einheit != null) {
@@ -61,7 +60,7 @@ public class TestCommands {
 		System.out.println("duration: " + durationMillis + "[ms]");
 	}
 	
-	public void store(String artString, String id, String name, String obereinheitOid) throws EinheitException {
+	public void store(String artString, String id, String name, String obereinheitOid) throws Exception {
 		// start timer
 		long startMillis = System.currentTimeMillis();
 		
@@ -74,24 +73,24 @@ public class TestCommands {
 		einheit.setName(name);
 		einheit.setOberEinheitOid(obereinheitOid);
 		
-		einheit = einheitApi.einheitErzeugen(einheit);
+		einheit = einheitService.einheitErzeugen(einheit);
 
 		long durationMillis = System.currentTimeMillis() - startMillis;
 		System.out.println("duration: " + durationMillis + "[ms]: " + einheit);
 	}
 	
-	public void store(String artString, String id, String name) throws EinheitException {
+	public void store(String artString, String id, String name) throws Exception {
 		// delegate
 		store(artString, id, name, null);
 	}
 	
-	public void remove(String oid) throws EinheitException {
+	public void remove(String oid) throws Exception {
 		// start timer
 		long startMillis = System.currentTimeMillis();
 		
 		// delete einheit
 		Einheit einheit = new Einheit(oid);
-		einheitApi.einheitLoeschen(einheit);
+		einheitService.einheitLoeschen(einheit);
 		
 		// log
 		long durationMillis = System.currentTimeMillis() - startMillis;
