@@ -16,7 +16,6 @@
 	org.amdatu.jta.manager;version='[1.1.0,1.1.1)',\
 	org.amdatu.jta.manager;version='[1.1.1,1.1.2)',\
 	org.amdatu.jta.transactionmanager;version='[1.0.0,1.0.1)',\
-	org.amdatu.jta.transactionmanager;version='[1.0.1,1.0.2)',\
 	org.amdatu.persistence2_1;version='[1.0.0,1.0.1)',\
 	org.apache.aries.util;version='[1.1.0,1.1.1)',\
 	org.apache.commons.lang3;version='[3.1.0,3.1.1)',\
@@ -50,46 +49,5 @@
 	verein.rollentyp.api;version=latest,\
 	verein.rollentyp.impl;version=latest,\
 	verein.rollentyp.jpa;version=latest
-
--runrequires:  \
-	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
-	osgi.identity;filter:='(osgi.identity=org.amdatu.jpa.adapter)',\
-	osgi.identity;filter:='(osgi.identity=org.amdatu.jpa.adapter.eclipselink)',\
-	osgi.identity;filter:='(osgi.identity=org.amdatu.jpa.datasourcefactory)',\
-	osgi.identity;filter:='(osgi.identity=org.amdatu.jpa.extender)',\
-	osgi.identity;filter:='(osgi.identity=org.amdatu.jta.manager)',\
-	osgi.identity;filter:='(osgi.identity=org.amdatu.jta.transactionmanager)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.felix.dependencymanager)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.felix.dependencymanager.runtime)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.felix.dependencymanager.shell)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.felix.configadmin)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.felix.eventadmin)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.runtime)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.felix.log)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.felix.metatype)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.aries.util)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.commons.lang3)',\
-	osgi.identity;filter:='(osgi.identity=org.amdatu.jta)',\
-	osgi.identity;filter:='(osgi.identity=org.amdatu.configurator.api)',\
-	osgi.identity;filter:='(osgi.identity=org.amdatu.configurator.properties)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.servicemix.bundles.commons-dbcp)',\
-	osgi.identity;filter:='(osgi.identity=org.apache.commons.pool)',\
-	osgi.identity;filter:='(osgi.identity=org.postgresql.jdbc41)',\
-	osgi.identity;filter:='(osgi.identity=org.eclipse.persistence.antlr)',\
-	osgi.identity;filter:='(osgi.identity=org.eclipse.persistence.asm)',\
-	osgi.identity;filter:='(osgi.identity=org.eclipse.persistence.core)',\
-	osgi.identity;filter:='(osgi.identity=org.eclipse.persistence.jpa)',\
-	osgi.identity;filter:='(osgi.identity=org.eclipse.persistence.jpa.jpql)',\
-	osgi.identity;filter:='(osgi.identity=verein.einheit.api)',\
-	osgi.identity;filter:='(osgi.identity=verein.einheit.impl)',\
-	osgi.identity;filter:='(osgi.identity=verein.einheit.jpa)',\
-	osgi.identity;filter:='(osgi.identity=verein.person.api)',\
-	osgi.identity;filter:='(osgi.identity=verein.person.jpa)',\
-	osgi.identity;filter:='(osgi.identity=verein.person.impl)',\
-	osgi.identity;filter:='(osgi.identity=verein.person.jpa)',\
-	osgi.identity;filter:='(osgi.identity=verein.rollentyp.api)',\
-	osgi.identity;filter:='(osgi.identity=verein.rollentyp.impl)',\
-	osgi.identity;filter:='(osgi.identity=verein.rollentyp.jpa)'
 
 	-runsystempackages: sun.reflect,sun.reflect.misc
