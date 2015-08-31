@@ -1,10 +1,10 @@
 Bundle-Version: 0.0.0.${tstamp}
-
+Private-Package:  \
+	de.popts.verein.rolle.jpa
+	
 Meta-Persistence:META-INF/persistence.xml
 Include-Resource: \
 	META-INF/persistence.xml=persistence/persistence.xml
 Import-Package: \
 	javax.sql;version=1.0.0,\
 	*
-Private-Package:  \
-	de.popts.verein.person.jpa

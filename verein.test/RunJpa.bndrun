@@ -48,6 +48,9 @@
 	verein.person.jpa;version=latest,\
 	verein.rollentyp.api;version=latest,\
 	verein.rollentyp.impl;version=latest,\
-	verein.rollentyp.jpa;version=latest
+	verein.rollentyp.jpa;version=latest,\
+	verein.rolle.api;version=latest,\
+	verein.rolle.impl;version=latest,\
+	verein.rolle.jpa;version=latest
 
 	-runsystempackages: sun.reflect,sun.reflect.misc

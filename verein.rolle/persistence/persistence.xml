@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence version="1.0" 
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  	
+  <persistence-unit name="VereinRollePU" transaction-type="JTA">
+
+	<jta-data-source>
+		<![CDATA[
+		osgi:javax.sql.DataSource/(name=ManagedVereinDS)
+		]]>
+	</jta-data-source>
+	
+	<class>de.popts.verein.rolle.jpa.JpaRolle</class>
+  
+	<exclude-unlisted-classes>true</exclude-unlisted-classes>  
+    
+    <properties>
+      <property name="eclipselink.target-database" value="PostgreSQL"/>
+      <property name="eclipselink.logging.level" value="INFO"/>
+      <property name="eclipselink.logging.level.sql" value="FINE"/>
+      <property name="eclipselink.logging.parameters" value="true"/>
+	  <property name="eclipselink.cache.shared.default" value="false"/>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+    </properties>
+    
+     </persistence-unit>
+</persistence>
