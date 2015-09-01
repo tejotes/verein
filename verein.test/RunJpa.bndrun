@@ -40,6 +40,18 @@
 	org.ops4j.pax.logging.pax-logging-api;version='[1.7.0,1.7.1)',\
 	org.postgresql.jdbc41;version='[9.4.0,9.4.1)',\
 	osgi.enterprise;version='[4.2.0,4.2.1)',\
+	org.apache.felix.http.jetty,\
+	org.apache.felix.http.api,\
+	org.apache.felix.http.servlet-api,\
+	org.apache.felix.http.whiteboard,\
+	org.amdatu.web.rest.jaxrs,\
+	org.amdatu.web.rest.wink,\
+	org.amdatu.web.rest.doc,\
+	com.fasterxml.jackson.core.jackson-annotations,\
+	com.fasterxml.jackson.core.jackson-core,\
+	com.fasterxml.jackson.core.jackson-databind,\
+	com.fasterxml.jackson.jaxrs.jackson-jaxrs-base,\
+	com.fasterxml.jackson.jaxrs.jackson-jaxrs-json-provider,\
 	verein.einheit.api;version=latest,\
 	verein.einheit.impl;version=latest,\
 	verein.einheit.jpa;version=latest,\
@@ -51,6 +63,7 @@
 	verein.rollentyp.jpa;version=latest,\
 	verein.rolle.api;version=latest,\
 	verein.rolle.impl;version=latest,\
-	verein.rolle.jpa;version=latest
+	verein.rolle.jpa;version=latest,\
+	verein.einheit.rest;version=latest
 
 	-runsystempackages: sun.reflect,sun.reflect.misc

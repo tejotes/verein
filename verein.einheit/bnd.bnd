@@ -7,4 +7,10 @@ Bundle-Version: 0.0.0.${tstamp}
 	osgi.core,\
 	org.apache.felix.gogo.runtime,\
 	javax.persistence,\
-	org.amdatu.jta;version=2.0
+	org.amdatu.jta;version=2.0,\
+	org.amdatu.web.rest.jaxrs,\
+	org.amdatu.web.rest.doc,\
+	javax.servlet,\
+	com.fasterxml.jackson.core.jackson-annotations,\
+	com.fasterxml.jackson.core.jackson-core,\
+	com.fasterxml.jackson.core.jackson-databind
