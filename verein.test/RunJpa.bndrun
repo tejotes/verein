@@ -5,6 +5,7 @@
 -resolve.effective: active;skip:="osgi.service"
 
 -runbundles:  \
+	org.apache.felix.http.api,\
 	com.springsource.org.apache.commons.logging;version='[1.1.1,1.1.2)',\
 	org.amdatu.configurator.api;version='[1.0.1,1.0.2)',\
 	org.amdatu.configurator.properties;version='[1.0.1,1.0.2)',\
@@ -41,7 +42,6 @@
 	org.postgresql.jdbc41;version='[9.4.0,9.4.1)',\
 	osgi.enterprise;version='[4.2.0,4.2.1)',\
 	org.apache.felix.http.jetty,\
-	org.apache.felix.http.api,\
 	org.apache.felix.http.servlet-api,\
 	org.apache.felix.http.whiteboard,\
 	org.amdatu.web.rest.jaxrs,\
@@ -64,6 +64,10 @@
 	verein.rolle.api;version=latest,\
 	verein.rolle.impl;version=latest,\
 	verein.rolle.jpa;version=latest,\
-	verein.einheit.rest;version=latest
+	verein.einheit.rest;version=latest,\
+	org.amdatu.web.rest.doc.swagger,\
+	org.amdatu.web.rest.doc.swagger.ui,\
+	verein.test;version=latest,\
+	org.amdatu.web.resourcehandler
 
 	-runsystempackages: sun.reflect,sun.reflect.misc
